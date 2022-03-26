@@ -1,0 +1,28 @@
+{
+  "name": "react-ts-webpack-template",
+  "version": "1.0.0",
+  "description": "react and typescript webpack template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AKadochnikov/react-ts-webpack-template.git"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "webpack"
+  ],
+  "author": "Alexander Kadochnikov <alex.kadoh@mail.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AKadochnikov/react-ts-webpack-template/issues"
+  },
+  "homepage": "https://github.com/AKadochnikov/react-ts-webpack-template#readme",
+  "devDependencies": {
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
+  }
+}
