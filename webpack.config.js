@@ -23,10 +23,14 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/,
-                use: ['style-loader','css-loader'],
+                use: ['style-loader','css-loader']
             },
             {
                 test: /\.(png | jpg | svg | gif | jpeg)$/,
+                use: ['file-loader']
+            },
+            {
+                test: /\.(ttf | woff | woff2 | eot)$/,
                 use: ['file-loader']
             }
         ]
