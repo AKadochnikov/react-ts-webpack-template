@@ -1,5 +1,10 @@
 .title {
     font-family: "Arial Black", sans-serif;
-    font-size: 30px;
-    color: darkred;
+    font-size: 90px;
+    color: cornflowerblue;
+}
+
+.json {
+    font-size: 140px;
+    color: gold;
 }

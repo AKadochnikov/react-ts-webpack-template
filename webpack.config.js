@@ -23,7 +23,12 @@ module.exports = {
     optimization: {
         splitChunks: {
             chunks: 'all',
-        }
+        },
+        runtimeChunk: 'single',
+    },
+    target: 'web',
+    devServer: {
+        port: 5000,
     },
     plugins: [
         new HTMLWebpackPlugin({
