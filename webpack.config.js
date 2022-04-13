@@ -28,8 +28,6 @@ module.exports = {
         }
     },
     optimization: {
-        minimize: isProd,
-        minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
         splitChunks: {
             chunks: 'all',
         },
@@ -42,9 +40,6 @@ module.exports = {
     plugins: [
         new HTMLWebpackPlugin({
             template: './index.html',
-            minify: {
-                collapseWhitespace: isProd,
-            }
         }),
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin({

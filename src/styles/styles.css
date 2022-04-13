@@ -5,6 +5,8 @@
 }
 
 .json {
-    font-size: 140px;
-    color: gold;
+    display: block;
+    font-size: 340px;
+    color: black;
+    background-color: cornflowerblue;
 }
