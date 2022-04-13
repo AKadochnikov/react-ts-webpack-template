@@ -28,6 +28,8 @@ module.exports = {
         }
     },
     optimization: {
+        minimize: isProd,
+        minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
         splitChunks: {
             chunks: 'all',
         },
@@ -40,6 +42,9 @@ module.exports = {
     plugins: [
         new HTMLWebpackPlugin({
             template: './index.html',
+            minify: {
+                collapseWhitespace: isProd,
+            }
         }),
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin({
@@ -50,15 +55,17 @@ module.exports = {
                 }
                 ]
         }),
-        new MiniCssExtractPlugin({
-            filename: '[name].[contenthash].css'
-        })
+        new MiniCssExtractPlugin()
     ],
     module: {
         rules: [
             {
                 test: /\.css$/,
                 use: [MiniCssExtractPlugin.loader,'css-loader']
+            },
+            {
+                test: /\.s[ac]ss$/,
+                use: [MiniCssExtractPlugin.loader,'css-loader','sass-loader']
             },
             {
                 test: /\.(png | jpg | svg | gif | jpeg)$/,
