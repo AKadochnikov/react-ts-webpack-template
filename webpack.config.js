@@ -9,7 +9,17 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
 
-const filename = (ext) => isDev? `[name].${ext}` : `[name].[contenthash].${ext}`
+const filename = (ext) => isDev? `[name].${ext}` : `[name].[contenthash].${ext}`;
+
+const cssLoaders = (loader) => {
+    const loaders = [MiniCssExtractPlugin.loader,'css-loader'];
+
+    if (loader) {
+        loaders.push(loader);
+    }
+
+    return loaders;
+}
 
 module.exports = {
     context: path.resolve(__dirname, 'src'),
@@ -67,11 +77,11 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/,
-                use: [MiniCssExtractPlugin.loader,'css-loader']
+                use: cssLoaders(),
             },
             {
                 test: /\.s[ac]ss$/,
-                use: [MiniCssExtractPlugin.loader,'css-loader','sass-loader']
+                use: cssLoaders('sass-loader')
             },
             {
                 test: /\.(png | jpg | svg | gif | jpeg)$/,
