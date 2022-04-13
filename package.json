@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "react and typescript webpack template",
   "private": true,
+  "browserslist": "> 0.25%, not dead",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cross-env NODE_ENV=development webpack --mode development",
@@ -26,6 +27,9 @@
   },
   "homepage": "https://github.com/AKadochnikov/react-ts-webpack-template#readme",
   "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/preset-env": "^7.16.11",
+    "babel-loader": "^8.2.4",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^10.2.4",
     "cross-env": "^7.0.3",

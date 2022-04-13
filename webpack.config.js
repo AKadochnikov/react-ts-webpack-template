@@ -94,6 +94,14 @@ module.exports = {
             {
                 test: /\.xml$/,
                 use: ['xml-loader']
+            },
+            {
+                test: /\.m?js$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+                options: {
+                    presets: ['@babel/preset-env']
+                }
             }
         ]
     }
