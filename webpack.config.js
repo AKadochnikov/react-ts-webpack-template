@@ -21,12 +21,23 @@ const cssLoaders = (loader) => {
     return loaders;
 }
 
+const addBabelPresets = (preset) => {
+    const presets = ['@babel/preset-env']
+
+    if (preset) {
+        presets.push(preset);
+    }
+
+    return presets;
+}
+
 module.exports = {
     context: path.resolve(__dirname, 'src'),
     mode: 'development',
     entry: {
         main: ['@babel/polyfill','./index.js'],
         secondary: './secondary.js',
+        types: './types.ts',
     },
     output: {
         filename: filename('js'),
@@ -99,9 +110,27 @@ module.exports = {
                 test: /\.m?js$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
+                options: addBabelPresets(),
+            },
+            {
+                test: /\.m?ts$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader',
                 options: {
-                    presets: ['@babel/preset-env']
+                    presets: addBabelPresets('@babel/preset-typescript'),
                 }
+            },
+            {
+                test: /\.jsx$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+                options: {
+                    presets: addBabelPresets('@babel/preset-react'),
+                }
+            },
+            {
+                test: /\.tsx?$/,
+                use: ['ts-loader']
             }
         ]
     }
