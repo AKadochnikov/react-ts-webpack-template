@@ -35,7 +35,7 @@ module.exports = {
     context: path.resolve(__dirname, 'src'),
     mode: 'development',
     entry: {
-        main: ['@babel/polyfill','./index.js'],
+        main: ['@babel/polyfill','./index.tsx'],
         secondary: './secondary.js',
         types: './types.ts',
     },
@@ -110,7 +110,9 @@ module.exports = {
                 test: /\.m?js$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
-                options: addBabelPresets(),
+                options: {
+                    presets: addBabelPresets(),
+                },
             },
             {
                 test: /\.m?ts$/,
@@ -129,8 +131,9 @@ module.exports = {
                 }
             },
             {
-                test: /\.tsx?$/,
-                use: ['ts-loader']
+                test: /\.tsx$/,
+                loader: 'ts-loader',
+                exclude: /node_modules/,
             }
         ]
     }
