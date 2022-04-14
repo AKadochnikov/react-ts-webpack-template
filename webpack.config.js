@@ -25,7 +25,7 @@ module.exports = {
     context: path.resolve(__dirname, 'src'),
     mode: 'development',
     entry: {
-        main: './index.js',
+        main: ['@babel/polyfill','./index.js'],
         secondary: './secondary.js',
     },
     output: {
